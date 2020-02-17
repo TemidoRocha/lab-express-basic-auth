@@ -5,6 +5,20 @@
     <link rel='stylesheet' href='/styles/style.css' />
   </head>
   <body>
+    <nav>
+      <a href="/">Home</a>
+      {{#if user}}
+        <a href="/">{{ user.name }}'s Profile</a>
+        <a href="/private">Private Page</a>
+        <a href="/user">User Profile</a>
+        <form action="/sign-out" method="POST">
+          <button>Log Out</button>
+        </form>
+      {{else}}
+        <a href="/sign-in">Sign In</a>
+        <a href="/sign-up">Sign Up</a>
+      {{/if}}
+    </nav>
     {{{body}}}
   </body>
 </html>
